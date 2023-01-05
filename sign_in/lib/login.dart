@@ -1,79 +1,164 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-Widget buildEmail(){
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      const Text(
-        'Email',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      const SizedBox(height: 10,),
-      Container(
-        alignment: Alignment.centerLeft,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
-      )
-    ]
-  );
-}
-
-class _LoginScreenState extends State<LoginScreen>{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                // ignore: prefer_const_constructors
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    colors: [
-                      Color.fromARGB(255, 68, 255, 224),
-                      Color.fromARGB(255, 12, 107, 104),
-                    ]
-                  )
-                ),
-                child: Column(
-                  children: <Widget>[
-                    const Text(
-                      'SignIn',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 50),
-                    buildEmail(),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-
-      ),
-    );
+class _LoginScreenState extends State<LoginScreen> {
+  _LoginScreenState() {
+    _selectedUserType = _UserType[0];
   }
 
+  // ignore: non_constant_identifier_names
+  final _UserType = ['Vehical Owner', 'Filling Station Owner'];
+  String _selectedUserType = "";
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.brown.shade200,
+        body: SafeArea(
+          child: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              // welcome back
+              const Icon(
+                Icons.directions_car_filled,
+                size: 150,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Login",
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 52,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                "Welcome back user!",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+
+              const SizedBox(
+                height: 50,
+              ),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: DropdownButtonFormField(
+                  value: _selectedUserType,
+                  items: _UserType.map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      )).toList(),
+                  onChanged: (val) {
+                    setState(() {
+                      _selectedUserType = val as String;
+                    });
+                  },
+                  icon: const Icon(Icons.arrow_drop_down_circle_outlined,
+                      color: Colors.brown),
+                  dropdownColor: Colors.brown[50],
+                  decoration: const InputDecoration(
+                      labelText: "Vehical Type",
+                      prefixIcon: Icon(Icons.supervised_user_circle)),
+                ),
+              ),
+
+              const SizedBox(
+                height: 10,
+              ),
+
+              //username
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Enter Your Username',
+                        labelText: 'Username',
+                        prefixIcon: Icon(Icons.person_rounded)),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 10,
+              ),
+              //password
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Enter your Password',
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.password_rounded),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 10,
+              ),
+
+              // signin button
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  padding: const EdgeInsets.all(20.0),
+                  decoration: BoxDecoration(
+                      color: Colors.brown.shade600,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const Center(
+                    child: Text(
+                      'Sign In',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Not a member?'),
+                  Text(
+                    ' Register',
+                    style: TextStyle(color: Colors.blue.shade600),
+                  ),
+                ],
+              )
+            ]),
+          ),
+        ));
+  }
 }
