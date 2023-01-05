@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:sign_in/Station.dart';
 import 'package:sign_in/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,12 +15,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Custom Button"),
-          backgroundColor: Colors.purple,
+          title: const Text("Custom Button"),
+          backgroundColor: Colors.brown,
         ),
         body: Container(
-          color: Colors.grey.shade300,
-          padding: EdgeInsets.all(30),
+          color: Colors.brown.shade200,
+          padding: const EdgeInsets.all(30),
           child: Column(
             children: [
               Center(
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return LoginScreen();
+                          return const LoginScreen();
                         },
                       ),
                     );
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: const [
                           BoxShadow(
-                            color: Colors.purple,
+                            color: Colors.brown,
                             spreadRadius: 1,
                             blurRadius: 8,
                             offset: Offset(4, 4),
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         "Check",
                         style: TextStyle(
-                          color: Colors.purple,
+                          color: Colors.brown,
                           fontWeight: FontWeight.bold,
                           fontSize: 36,
                         ),
@@ -71,7 +72,14 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    print("Button 2 Clicked");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return StationPage();
+                        },
+                      ),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(20),
@@ -83,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.purple,
+                              color: Colors.brown,
                               spreadRadius: 1,
                               blurRadius: 8,
                               offset: Offset(4, 4),
@@ -99,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "Enterd Station",
                           style: TextStyle(
-                            color: Colors.purple,
+                            color: Colors.brown,
                             fontWeight: FontWeight.bold,
                             fontSize: 36,
                           ),
