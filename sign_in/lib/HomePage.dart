@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:sign_in/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,43 +19,97 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Container(
           color: Colors.grey.shade300,
-          child: Center(
-            child: GestureDetector(
-              onTap: () {
-                print("Button Clicked");
-              },
-              child: Container(
-                height: 50,
-                width: 150,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.purple,
-                        spreadRadius: 1,
-                        blurRadius: 8,
-                        offset: Offset(4, 4),
+          padding: EdgeInsets.all(30),
+          child: Column(
+            children: [
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return LoginScreen();
+                        },
                       ),
-                      BoxShadow(
-                        color: Colors.white,
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset(-4, -4),
-                      )
-                    ]),
-                child: Center(
-                  child: Text(
-                    "Check",
-                    style: TextStyle(
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    height: 100,
+                    width: 300,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.purple,
+                            spreadRadius: 1,
+                            blurRadius: 8,
+                            offset: Offset(4, 4),
+                          ),
+                          BoxShadow(
+                            color: Colors.white,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(-4, -4),
+                          )
+                        ]),
+                    child: const Center(
+                      child: Text(
+                        "Check",
+                        style: TextStyle(
+                          color: Colors.purple,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 36,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    print("Button 2 Clicked");
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Container(
+                      height: 100,
+                      width: 300,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade300,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.purple,
+                              spreadRadius: 1,
+                              blurRadius: 8,
+                              offset: Offset(4, 4),
+                            ),
+                            BoxShadow(
+                              color: Colors.white,
+                              spreadRadius: 2,
+                              blurRadius: 8,
+                              offset: Offset(-4, -4),
+                            )
+                          ]),
+                      child: const Center(
+                        child: Text(
+                          "Enterd Station",
+                          style: TextStyle(
+                            color: Colors.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 36,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ));
   }
