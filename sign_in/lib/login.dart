@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sign_in/HomePage.dart';
+import 'package:sign_in/Register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -126,18 +128,30 @@ class _LoginScreenState extends State<LoginScreen> {
               // signin button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                      color: Colors.brown.shade600,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: const Center(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const HomePage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Container(                  
+                    padding: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                        color: Colors.brown.shade600,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: const Center(                    
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
                     ),
                   ),
                 ),
@@ -151,9 +165,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text('Not a member?'),
-                  Text(
-                    ' Register',
-                    style: TextStyle(color: Colors.blue.shade600),
+                  GestureDetector(
+                    onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const RegisterScreen();
+                        },
+                      ),
+                    );
+                  },
+                    child: Text(                    
+                      ' Register',
+                      style: TextStyle(color: Colors.blue.shade600),
+                    ),
                   ),
                 ],
               )
