@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:sign_in/Station.dart';
+import 'package:sign_in/feed.dart';
 import 'package:sign_in/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Custom Button"),
+          title: const Text("Home"),
           backgroundColor: Colors.brown,
         ),
         body: Container(
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return const LoginScreen();
+                          return const feedScreen();
                         },
                       ),
                     );
