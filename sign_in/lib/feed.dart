@@ -32,7 +32,10 @@ class _feedScreenState extends State<feedScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: const [
                       SizedBox(
-                        width: 120,
+                        width: 10,
+                      ),
+                      SizedBox(
+                        width: 160,
                         child: Text(
                           "Station",
                           style: TextStyle(
@@ -67,7 +70,7 @@ class _feedScreenState extends State<feedScreen> {
                         )
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 15,
                       )
                     ]),
               ),
@@ -79,35 +82,50 @@ class _feedScreenState extends State<feedScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Text(
-                        'Kandy',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      SizedBox(
+                        width: 20,
+                      ),
+                      SizedBox(
+                        width: 140,
+                        child: Text(
+                          'Kandy',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                       SizedBox(
                         width: 20,
                       ),
-                      Text(
-                        '4',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      SizedBox(
+                        width: 40,
+                        child: Text(
+                          '4',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                      Text(
-                        '5',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      SizedBox(
+                        width: 40,
+                        child: Text(
+                          '5',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                      Text(
-                        '1h 15m',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      SizedBox(
+                        width: 60,
+                        child: Text(
+                          '1h 15m',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ],
