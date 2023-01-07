@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:sign_in/feedData.dart';
+import 'package:sign_in/feedHeader.dart';
 
+// ignore: camel_case_types
 class feedScreen extends StatefulWidget {
   const feedScreen({super.key});
 
@@ -10,6 +11,8 @@ class feedScreen extends StatefulWidget {
 }
 
 class _feedScreenState extends State<feedScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,119 +24,17 @@ class _feedScreenState extends State<feedScreen> {
           color: Colors.brown.shade200,
           padding: const EdgeInsets.all(30),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                // ignore: prefer_const_literals_to_create_immutables
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      SizedBox(
-                        width: 160,
-                        child: Text(
-                          "Station",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                        child: Icon(
-                          Icons.directions_car_filled,
-                          size: 30,
-                          color: Colors.brown,                        
-                        )
-                      ),
-                      SizedBox(
-                        width: 40,
-                        child: Icon(
-                          Icons.directions_bus,
-                          size: 30,
-                          color: Colors.brown,                        
-                        )
-                      ),
-                      SizedBox(
-                        width: 60,
-                        child: Icon(
-                          Icons.timer,
-                          size: 30,
-                          color: Colors.brown,                        
-                        )
-                      ),
-                      SizedBox(
-                        width: 15,
-                      )
-                    ]),
-              ),
-              Container(
-                width: double.infinity,
-                height: 50,
-                child: Card(
-                  color: Colors.brown.shade100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 140,
-                        child: Text(
-                          'Kandy',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 40,
-                        child: Text(
-                          '4',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                        child: Text(
-                          '5',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 60,
-                        child: Text(
-                          '1h 15m',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
+              const FeedHeader(),
+              FeedData(),
             ],
           ),
-        ));
+
+        ),
+      );  
   }
 }
