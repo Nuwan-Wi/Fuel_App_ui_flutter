@@ -1,7 +1,6 @@
 // ignore: file_names
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:page_transition/page_transition.dart';
 
 import 'login.dart';
@@ -19,14 +18,13 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Container(
-        height: 600,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-            width: 200,
-            child: Image.asset('assets/fuel-gauge-png-fuel-1680.jpg')
+          SizedBox(
+            width: 300,            
+            child: Image.asset('assets/fuel-gauge-png-fuel-1680.png')
             ),
-          Container(
-            child: const Text(
+          const SizedBox(
+            child: Text(
               "Fuel App",
               style: TextStyle(
                 color: Colors.white,
@@ -40,13 +38,12 @@ class _SplashState extends State<Splash> {
       //'assets/fuel-gauge-png-fuel-1680.jpg',
       nextScreen: LoginScreen(),
       splashTransition: SplashTransition.fadeTransition,
-      pageTransitionType: PageTransitionType.bottomToTop,
+      pageTransitionType: PageTransitionType.fade,
       backgroundColor: Colors.brown.shade300,
-      duration: 4000,
+      duration: 3000,
       
     );
   }
-
   // @override
   // void initState() {
   //   // TODO: implement initState
@@ -87,4 +84,5 @@ class _SplashState extends State<Splash> {
   //     ),
   //   );
   // }
+
 }
